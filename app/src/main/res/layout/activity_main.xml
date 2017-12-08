@@ -1,18 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shangxiazuoyou.advancedslidelayout.MainActivity">
+    tools:context=".MainActivity">
 
-    <TextView
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dip"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <Button
+        android:id="@+id/buttonOpen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:onClick="buttonClicked"
+        android:text="@string/open_button_container" />
 
-</android.support.constraint.ConstraintLayout>
+    <shangxiazuoyou.advancedslidelayout.library.AdvancedSlideLayout
+        android:id="@+id/advancedSlideLayout"
+        android:layout_width="@dimen/layer_size"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:elevation="2dip">
+        <!--advancedSlideLayout:shadowDrawable="@drawable/sidebar_shadow"
+        advancedSlideLayout:shadowSize="@dimen/shadow_size"
+        advancedSlideLayout:offsetDistance="@dimen/offset_distance"
+        advancedSlideLayout:previewOffsetDistance="@dimen/preview_offset_distance"
+        advancedSlideLayout:stickTo="top|bottom|right|left"
+        advancedSlideLayout:changeStateOnTap="true">-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary_light">
+
+            <TextView
+                android:id="@+id/swipeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="15dip"
+                android:gravity="center"
+                android:paddingBottom="80dp"
+                android:textColor="@color/primary_text"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/buttonClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:onClick="buttonClicked"
+                android:text="@string/close_button_container" />
+
+        </RelativeLayout>
+
+    </shangxiazuoyou.advancedslidelayout.library.AdvancedSlideLayout>
+
+</RelativeLayout>
